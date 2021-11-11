@@ -11,8 +11,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  image: {
+  pressable: {
     width: '90%',
+  },
+  image: {
+    width: '100%',
     height: 300,
   },
   imageChild: {

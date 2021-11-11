@@ -18,9 +18,9 @@ const Home = () => {
         component={GalleryScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="home" type="antdesign" color="#f50" />
-          ),
+          tabBarIcon: ({color}) => {
+            return <Icon name="home" type="antdesign" color={color} />;
+          },
         }}
       />
       <Tab.Screen
@@ -28,8 +28,8 @@ const Home = () => {
         component={FavouriteScreen}
         options={{
           tabBarLabel: 'Favourites',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="heart" type="antdesign" color="#f50" />
+          tabBarIcon: ({color}) => (
+            <Icon name="heart" type="antdesign" color={color} />
           ),
         }}
       />

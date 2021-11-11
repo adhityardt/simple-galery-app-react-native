@@ -3,13 +3,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './src/containers/Home';
-import GalleryScreen from './src/containers/Gallery';
 import PhotoDetailScreen from './src/containers/PhotoDetail';
 import FavouriteScreen from './src/containers/Favourite';
 
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -17,22 +16,15 @@ const MyStack = () => {
           name="Home"
           component={HomeScreen}
           options={{headerShown: false}}
-          // options={{title: null}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Favourite"
           component={FavouriteScreen}
-          // options={{title: 'Favourite'}}
-        /> */}
-        {/* <Stack.Screen
-          name="Gallery"
-          component={GalleryScreen}
-          // options={{title: 'Gallery'}}
-        /> */}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Detail"
           component={PhotoDetailScreen}
-          // options={{headerShown: false}}
           options={{title: 'Detail'}}
         />
       </Stack.Navigator>
@@ -40,4 +32,4 @@ const MyStack = () => {
   );
 };
 
-export default MyStack;
+export default App;

@@ -13,9 +13,12 @@ import styles from './index.style';
 import action from '../../actions/favAction';
 
 const Favourite = props => {
-  const {favState} = props;
+  const {favState, navigation} = props;
   const onPressDelete = id => {
     props.removeFav(id);
+  };
+  const onPressImage = ({id, imageId}) => {
+    return navigation.navigate('Detail', {id, imageId});
   };
 
   return (
@@ -24,12 +27,16 @@ const Favourite = props => {
         {favState.favPictures.map((el, index) => {
           return (
             <View style={styles.imageContainer} key={index}>
-              <Image
-                source={{
-                  uri: `https://www.artic.edu/iiif/2/${el.imageId}/full/1686,/0/default.jpg`,
-                }}
-                style={styles.image}
-              />
+              <Pressable
+                style={styles.pressable}
+                onPress={() => onPressImage({id: el.id, imageId: el.imageId})}>
+                <Image
+                  source={{
+                    uri: `https://www.artic.edu/iiif/2/${el.imageId}/full/1686,/0/default.jpg`,
+                  }}
+                  style={styles.image}
+                />
+              </Pressable>
               <View style={styles.imageChild}>
                 <View style={styles.textContainer}>
                   <Text style={styles.textTitle}>{el.title}</Text>
